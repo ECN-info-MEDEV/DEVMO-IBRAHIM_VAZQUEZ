@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/vinted" />
+
+    <Button
+        android:id="@+id/buttonAddItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/button_addItemActivity"
+        android:background="@color/welcomeButton"
+        android:drawableLeft="@drawable/baseline_add_24"/>
+
+    <Button
+        android:id="@+id/buttonYourStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/button_yourStoreActivity"
+        android:background="@color/welcomeButton"/>
+
+    <Button
+        android:id="@+id/buttonBuyerMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/button_buyerMessageActivity"
+        android:background="@color/welcomeButton"
+        android:drawableLeft="@drawable/baseline_message_24"
+        />
+
+    <Button
+        android:id="@+id/buttonSalesHistory"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_weight="1"
+        android:text="@string/button_salesHistoryActivity"
+        android:background="@color/welcomeButton"
+        android:drawableLeft="@drawable/baseline_history_24"/>
+
+
+</LinearLayout>
