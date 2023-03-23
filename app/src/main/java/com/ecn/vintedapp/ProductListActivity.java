@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,16 +40,54 @@ public class ProductListActivity extends AppCompatActivity {
         // The onChanged() method fires when the observed data changes and the activity is
         // in the foreground.
         mProductViewModel.getAllProducts().observe(this, products -> {
-            Log.d("","Mainactivity : tryoing to submitList");
+            Log.d("","Mainactivity : trying to submitList");
 
             // Update the cached copy of the words in the adapter.
             adapter.submitList(products);
         });
+
+        RecyclerView recyclerView1=findViewById(R.id.recyclerview);
+        String name="Test Name";
+        Button editItem=recyclerView1.findViewById(R.id.buttonEditingProduct);
+
+        /**
+        editItem.setOnClickListener(view->{
+            Intent intent = new Intent(ProductListActivity.this, NewProductActivity.class);
+            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            intent.putExtra("name",name);
+
+
+        });**/
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(ProductListActivity.this, NewProductActivity.class);
             startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("ProductListActivity","Receiving the object ");
+
+        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Log.d("ProductListActivity","Receiving the object : the response is ok ");
+
+            Product product = new Product(data.getStringExtra(NewProductActivity.EXTRA_REPLY));
+            String priceResponse=data.getStringExtra("price");
+            String name=data.getStringExtra("name");
+            String finalDescription= data.getStringExtra("description");
+            product.setDescription(finalDescription);
+            product.setName(name);
+            product.setPrice(priceResponse);
+
+
+            mProductViewModel.insert(product);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -24,6 +24,7 @@ limitations under the License. -->
     <string name="button_yourStoreActivity">Your Store</string>
     <string name="button_buyerMessageActivity">Buyer Messages</string>
     <string name="button_salesHistoryActivity">Sales History</string>
+    <string name="button_editProduct">Edit Product</string>
 
 
     <string name="hint_description">Description…</string>
