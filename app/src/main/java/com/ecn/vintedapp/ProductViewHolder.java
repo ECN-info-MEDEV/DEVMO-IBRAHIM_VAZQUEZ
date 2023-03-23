@@ -43,9 +43,12 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
 
     public void bind(Product product) {
         Log.d("Product","Trying to bind");
-        productDescriptionView.setText(product.getDescription());
-        productPriceView.setText(product.getPrice());
-        productNameView.setText(product.getName());
+        String fullDescription="Description : " +product.getDescription();
+        String fullPrice="Price : "+product.getPrice()+" €";
+        String fullName="Name : "+product.getName();
+        productDescriptionView.setText(fullDescription);
+        productPriceView.setText(fullPrice);
+        productNameView.setText(fullName);
 
 
 

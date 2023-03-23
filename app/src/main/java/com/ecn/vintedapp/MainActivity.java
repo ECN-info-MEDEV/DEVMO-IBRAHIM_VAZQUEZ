@@ -85,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity","Recieving the object ");
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Log.d("MainActivity","Recieving the object : the response is ok ");
+            Log.d("MainActivity","Receiving the object : the response is ok ");
 
             Product product = new Product(data.getStringExtra(NewProductActivity.EXTRA_REPLY));
             String priceResponse=data.getStringExtra("price");
-            String finalPrice="Price : "+priceResponse;
+            String finalPrice=priceResponse;
             String name=data.getStringExtra("name");
-            String finalName="Name : "+name;
-            String finalDescription="Description : " + data.getStringExtra("description");
+            String finalName=name;
+            String finalDescription= data.getStringExtra("description");
             product.setDescription(finalDescription);
             product.setName(finalName);
             product.setPrice(finalPrice);

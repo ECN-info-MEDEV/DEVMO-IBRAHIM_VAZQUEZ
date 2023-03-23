@@ -78,7 +78,7 @@ public class NewProductActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        Log.d("","calling onActivityResult");
+        Log.d("NewProductActivity","calling onActivityResult");
 
         if(resultCode==RESULT_OK){
             if(requestCode==GALLERY_REQ_CODE){
