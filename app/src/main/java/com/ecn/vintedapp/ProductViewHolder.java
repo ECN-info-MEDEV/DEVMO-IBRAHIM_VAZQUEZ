@@ -72,7 +72,7 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
     }
 
     static ProductViewHolder create(ViewGroup parent) {
-        Log.d("","ProductViewHolder trying to create");
+        Log.d("ProductViewHolder","ProductViewHolder trying to create");
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);

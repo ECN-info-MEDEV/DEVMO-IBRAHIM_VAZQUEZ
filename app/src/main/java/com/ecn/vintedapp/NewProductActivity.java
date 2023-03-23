@@ -35,6 +35,11 @@ public class NewProductActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        int productId=-99;
+
         Log.d("","Creating new product activity");
 
         super.onCreate(savedInstanceState);
@@ -45,6 +50,24 @@ public class NewProductActivity extends AppCompatActivity {
         mEditCategoryView=findViewById(R.id.edit_Category);
         final Button buttonImage=findViewById(R.id.imageButton);
         imgGallery=findViewById(R.id.edit_image);
+        if (extras != null) {
+            productId = extras.getInt("productId");
+            Log.d("NewProductActivity ",String.format("the product id is %s",productId));
+            String productName = extras.getString("productName");
+            String productPrice = extras.getString("productPrice");
+            String description=extras.getString("description");
+            mEditNameView.setText(productName);
+            mEditPriceView.setText(productPrice);
+            mEditDescriptionView.setText(description);
+            Log.d("NewProductActivity ",String.format("the product id is %s",productId));
+
+
+            // Do something with the product information
+        }
+
+
+
+
         buttonImage.setOnClickListener(view->{
             Intent idGallery=new Intent(Intent.ACTION_PICK);
             idGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -53,11 +76,14 @@ public class NewProductActivity extends AppCompatActivity {
         });
 
         final Button button = findViewById(R.id.button_save);
+        int finalProductId = productId;
         button.setOnClickListener(view -> {
             Intent replyIntent = new Intent();
             if (TextUtils.isEmpty(mEditDescriptionView.getText()) || TextUtils.isEmpty(mEditPriceView.getText())
-                    || imgGallery.getDrawable()==null||TextUtils.isEmpty(mEditNameView.getText())
+                    ||TextUtils.isEmpty(mEditNameView.getText())
                     || TextUtils.isEmpty(mEditCategoryView.getSelectedItem().toString())) {
+                Log.d("NewProductActivity","Cannot add element one attribute is missing");
+
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
                 Log.d("","trying to add new product");
@@ -68,9 +94,13 @@ public class NewProductActivity extends AppCompatActivity {
                 replyIntent.putExtra("price",price);
                 replyIntent.putExtra("name",name);
                 replyIntent.putExtra("category",category);
+                if(finalProductId >(-99)){
+                    Log.d("NewProductActivity",String.format("Putting activity id %s",finalProductId));
 
-                Drawable content=imgGallery.getDrawable();
-                //replyIntent.putExtra("photo",content);
+                    replyIntent.putExtra("id",finalProductId);
+                }
+
+
 
                 replyIntent.putExtra("description",description);
                 Log.d("","end trying to add new product");
@@ -84,20 +114,7 @@ public class NewProductActivity extends AppCompatActivity {
 
         });
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            int productId = extras.getInt("productId");
-            Log.d("NewProductActivity ",String.format("the product id is %s",productId));
-            String productName = extras.getString("productName");
-            String productPrice = extras.getString("productPrice");
-            String description=extras.getString("description");
-            mEditNameView.setText(productName);
-            mEditPriceView.setText(productPrice);
-            mEditDescriptionView.setText(description);
 
-            // Do something with the product information
-        }
     }
 
     @Override

@@ -25,4 +25,8 @@ public class ProductViewModel extends AndroidViewModel {
     LiveData<List<Product>> getAllProducts() { return mAllProducts; }
 
     public void insert(Product product) { mRepository.insert(product); }
+
+    public void update(Product product){
+        mRepository.update(product);
+    }
 }

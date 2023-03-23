@@ -23,4 +23,7 @@ public interface ProductDAO {
 
     @Query("SELECT * FROM product_table")
     LiveData<List<Product>> getAllProducts();
+
+    @Query("UPDATE product_table set Description=:description,Price=:price,Category=:category ,name=:name where id=:id  ")
+    void update(String description,String price,String category,String name,int id);
 }

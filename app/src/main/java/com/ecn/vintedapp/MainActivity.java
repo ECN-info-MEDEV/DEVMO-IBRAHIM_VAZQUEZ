@@ -82,22 +82,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("MainActivity","Recieving the object ");
+        Log.d("MainActivity","Receiving the object ");
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Log.d("MainActivity","Recieving the object : the response is ok ");
+            Log.d("MainActivity","Receiving the object : the response is ok ");
 
             Product product = new Product(data.getStringExtra(NewProductActivity.EXTRA_REPLY));
             String priceResponse=data.getStringExtra("price");
+            int id=data.getIntExtra("id",-1);
             String name=data.getStringExtra("name");
             product.setDescription(data.getStringExtra("description"));
             product.setName(name);
             product.setPrice(priceResponse);
             product.setCategory(data.getStringExtra("category"));
+            if( id>0){
+                Log.d("ProductListActivity","Receiving the object : the response is ok ");
 
+                mProductViewModel.update(product);
+            }
 
             mProductViewModel.insert(product);
         } else {
+            Log.d("MainActivity","Problem while recieving the response object ");
+
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,

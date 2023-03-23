@@ -80,10 +80,23 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             product.setDescription(finalDescription);
             product.setName(name);
             product.setPrice(priceResponse);
+            int id=data.getIntExtra("id",-1);
+            if(id>0){
+                Log.d("ProductListActivity","UPDATING THE PRODUCT ");
+
+                mProductViewModel.update(product);
+            }
+            else{
+                Log.d("ProductListActivity","INSERTING INTO DATABASE ");
+
+                mProductViewModel.insert(product);
+
+            }
 
 
-            mProductViewModel.insert(product);
         } else {
+            Log.d("ProductListActivity","There is a problem: the response is not ok ");
+
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
@@ -98,6 +111,6 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         intent.putExtra("productName", product.getName());
         intent.putExtra("productPrice", product.getPrice());
         intent.putExtra("description",product.getDescription());
-        startActivity(intent);
+        startActivityForResult(intent,NEW_WORD_ACTIVITY_REQUEST_CODE);
     }
 }

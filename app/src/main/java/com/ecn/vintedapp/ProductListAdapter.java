@@ -24,6 +24,8 @@ public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> 
 
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d("ProductListAdapater","Creating product View Holder ");
+
         return ProductViewHolder.create(parent);
     }
 

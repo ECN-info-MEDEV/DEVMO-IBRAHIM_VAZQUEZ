@@ -1,6 +1,7 @@
 package com.ecn.vintedapp;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -33,5 +34,12 @@ public class ProductRepository {
         ProductRoomDatabase.databaseWriteExecutor.execute(() -> {
             mProductDao.insert(product);
         });
+    }
+
+    void update(Product product){
+        Log.d("ProductRepository","Trying to update the database ");
+
+        mProductDao.update(product.getDescription(), product.getPrice(), product.getCategory(), product.getName(), product.getId());
+
     }
 }
