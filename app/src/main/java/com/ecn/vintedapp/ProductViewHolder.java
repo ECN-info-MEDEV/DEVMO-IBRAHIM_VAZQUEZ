@@ -19,6 +19,8 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
 
     private final ImageView photo;
 
+    private final TextView productCategoryView;
+
 
     private ProductViewHolder(View itemView) {
 
@@ -29,6 +31,7 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         productPriceView=itemView.findViewById(R.id.priceView);
         productNameView=itemView.findViewById(R.id.nameView);
         photo=itemView.findViewById(R.id.imgView);
+        productCategoryView = itemView.findViewById(R.id.categoryView);
 
 
     }
@@ -38,6 +41,7 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         productDescriptionView.setText(product.getDescription());
         productPriceView.setText(product.getPrice());
         productNameView.setText(product.getName());
+        productCategoryView.setText(product.getCategory());
 
 
 

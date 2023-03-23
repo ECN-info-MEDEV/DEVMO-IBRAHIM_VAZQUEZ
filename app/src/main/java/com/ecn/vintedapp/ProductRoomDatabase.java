@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Product.class}, version = 9, exportSchema = false)
+@Database(entities = {Product.class}, version = 10, exportSchema = false)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
 
@@ -61,6 +61,7 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
                 product.setPrice("100");
                 product.setDescription("description2");
                 product.setName("product2");
+                product.setCategory("Men");
                 dao.insert(product);
             });
         }

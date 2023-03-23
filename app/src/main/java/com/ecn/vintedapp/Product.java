@@ -18,6 +18,8 @@ public class Product {
 
     private String price;
 
+    private String Category;
+
 
 
 
@@ -51,6 +53,10 @@ public class Product {
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.Description = description;
     }
+
+    public String getCategory() {return Category;}
+
+    public void setCategory(String category) { this.Category = category;}
 }

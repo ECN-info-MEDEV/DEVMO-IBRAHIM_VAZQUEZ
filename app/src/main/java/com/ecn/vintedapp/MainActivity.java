@@ -93,9 +93,11 @@ public class MainActivity extends AppCompatActivity {
             String name=data.getStringExtra("name");
             String finalName="Name : "+name;
             String finalDescription="Description : " + data.getStringExtra("description");
+            String finalCategory = "Category : " +data.getStringExtra("category");
             product.setDescription(finalDescription);
             product.setName(finalName);
             product.setPrice(finalPrice);
+            product.setCategory(finalCategory);
 
 
             mProductViewModel.insert(product);

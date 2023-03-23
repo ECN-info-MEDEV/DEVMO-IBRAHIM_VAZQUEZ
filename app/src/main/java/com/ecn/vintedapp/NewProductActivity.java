@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,10 @@ public class NewProductActivity extends AppCompatActivity {
 
     private ImageView imgGallery;
 
+    private Spinner mEditCategoryView;
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class NewProductActivity extends AppCompatActivity {
         mEditDescriptionView = findViewById(R.id.edit_description);
         mEditPriceView=findViewById(R.id.edit_price);
         mEditNameView=findViewById(R.id.edit_name);
+        mEditCategoryView=findViewById(R.id.edit_Category);
         final Button buttonImage=findViewById(R.id.imageButton);
         imgGallery=findViewById(R.id.edit_image);
         buttonImage.setOnClickListener(view->{
@@ -49,15 +55,19 @@ public class NewProductActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
             Intent replyIntent = new Intent();
-            if (TextUtils.isEmpty(mEditDescriptionView.getText()) || TextUtils.isEmpty(mEditPriceView.getText()) || imgGallery.getDrawable()==null||TextUtils.isEmpty(mEditNameView.getText()) ) {
+            if (TextUtils.isEmpty(mEditDescriptionView.getText()) || TextUtils.isEmpty(mEditPriceView.getText())
+                    || imgGallery.getDrawable()==null||TextUtils.isEmpty(mEditNameView.getText())
+                    || TextUtils.isEmpty(mEditCategoryView.getSelectedItem().toString())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
                 Log.d("","trying to add new product");
                 String description = mEditDescriptionView.getText().toString();
                 String price =mEditPriceView.getText().toString();
                 String name=mEditNameView.getText().toString();
+                String category=mEditCategoryView.getSelectedItem().toString();
                 replyIntent.putExtra("price",price);
                 replyIntent.putExtra("name",name);
+                replyIntent.putExtra("category",category);
 
                 Drawable content=imgGallery.getDrawable();
                 //replyIntent.putExtra("photo",content);

@@ -24,13 +24,20 @@
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/holo_green_dark" />
     <TextView
         android:id="@+id/priceView"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light" />
+        android:background="@android:color/holo_green_dark" />
+    <TextView
+        android:id="@+id/categoryView"
+        style="@style/word_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark" />
+
 </LinearLayout>
 
 
