@@ -1,6 +1,7 @@
 package com.ecn.vintedapp;
 
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,8 +10,16 @@ import androidx.recyclerview.widget.ListAdapter;
 
 public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder>  {
 
+    private OnProductClickListener onProductClickListener;
+
+
     public ProductListAdapter(@NonNull DiffUtil.ItemCallback<Product> diffCallback) {
         super(diffCallback);
+    }
+
+    public ProductListAdapter(@NonNull DiffUtil.ItemCallback<Product> diffCallback,OnProductClickListener listerner) {
+        super(diffCallback);
+        this.onProductClickListener=listerner;
     }
 
     @Override
@@ -24,6 +33,13 @@ public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> 
 
         Product current = getItem(position);
         holder.bind(current);
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the button click event
+                onProductClickListener.onProductClick(current);
+            }
+        });
     }
 
     static class ProductDiff extends DiffUtil.ItemCallback<Product> {
@@ -38,4 +54,9 @@ public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> 
             return oldItem.getId()==newItem.getId();
         }
     }
+    public interface OnProductClickListener {
+        void onProductClick(Product product);
+    }
 }
+
+

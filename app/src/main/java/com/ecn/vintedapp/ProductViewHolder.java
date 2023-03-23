@@ -1,5 +1,6 @@
 package com.ecn.vintedapp;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
 
     private final TextView productCategoryView;
 
-    private final Button editButton;
+    public final Button editButton;
 
 
     private ProductViewHolder(View itemView) {
@@ -39,6 +40,14 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         photo.setImageResource(R.drawable.shirtpicture);
 
         productCategoryView = itemView.findViewById(R.id.categoryView);
+        /**
+        editButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ProductListActivity.class, NewProductActivity.class);
+            intent.putExtra("productId", product.getId());
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productPrice", product.getPrice());
+            startActivity(intent);
+        });**/
 
 
     }

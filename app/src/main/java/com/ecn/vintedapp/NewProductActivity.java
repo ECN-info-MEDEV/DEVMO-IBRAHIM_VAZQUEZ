@@ -83,6 +83,21 @@ public class NewProductActivity extends AppCompatActivity {
             Log.d("","end calling finishmethod");
 
         });
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            int productId = extras.getInt("productId");
+            Log.d("NewProductActivity ",String.format("the product id is %s",productId));
+            String productName = extras.getString("productName");
+            String productPrice = extras.getString("productPrice");
+            String description=extras.getString("description");
+            mEditNameView.setText(productName);
+            mEditPriceView.setText(productPrice);
+            mEditDescriptionView.setText(description);
+
+            // Do something with the product information
+        }
     }
 
     @Override

@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class ProductListActivity extends AppCompatActivity {
+public class ProductListActivity extends AppCompatActivity implements ProductListAdapter.OnProductClickListener{
 
     private ProductViewModel mProductViewModel;
 
@@ -28,7 +28,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         mProductViewModel = new ViewModelProvider(this).get(ProductViewModel.class);
 
-        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff());
+        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff(),this);
         Log.d("Main Activity", "Creating new ProductListAdapter");
 
         recyclerView.setAdapter(adapter);
@@ -46,18 +46,18 @@ public class ProductListActivity extends AppCompatActivity {
             adapter.submitList(products);
         });
 
-        RecyclerView recyclerView1=findViewById(R.id.recyclerview);
-        String name="Test Name";
-        Button editItem=recyclerView1.findViewById(R.id.buttonEditingProduct);
-
-        /**
-        editItem.setOnClickListener(view->{
-            Intent intent = new Intent(ProductListActivity.this, NewProductActivity.class);
-            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
-            intent.putExtra("name",name);
+        Button editItem=recyclerView.findViewById(R.id.buttonEditingProduct);
+        if(editItem!=null){
+            editItem.setOnClickListener(view->{
+                Intent intent = new Intent(ProductListActivity.this, NewProductActivity.class);
+                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+                intent.putExtra("name","test");
 
 
-        });**/
+            });
+
+        }
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
@@ -89,5 +89,15 @@ public class ProductListActivity extends AppCompatActivity {
                     R.string.empty_not_saved,
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void onProductClick(Product product) {
+        // Handle the product click event
+        Intent intent = new Intent(this, NewProductActivity.class);
+        intent.putExtra("productId", product.getId());
+        intent.putExtra("productName", product.getName());
+        intent.putExtra("productPrice", product.getPrice());
+        intent.putExtra("description",product.getDescription());
+        startActivity(intent);
     }
 }
