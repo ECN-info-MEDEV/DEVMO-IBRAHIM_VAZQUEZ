@@ -38,7 +38,7 @@ public class ProductListActivity extends AppCompatActivity {
         // The onChanged() method fires when the observed data changes and the activity is
         // in the foreground.
         mProductViewModel.getAllProducts().observe(this, products -> {
-            Log.d("","Mainactivity : tryoing to submitList");
+            Log.d("","Mainactivity : trying to submitList");
 
             // Update the cached copy of the words in the adapter.
             adapter.submitList(products);

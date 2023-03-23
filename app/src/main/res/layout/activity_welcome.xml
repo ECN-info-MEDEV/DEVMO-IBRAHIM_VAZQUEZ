@@ -22,6 +22,7 @@
         android:layout_weight="1"
         android:text="@string/button_addItemActivity"
         android:background="@color/welcomeButton"
+        android:textColor="@color/black"
         android:drawableLeft="@drawable/baseline_add_24"/>
 
     <Button
@@ -29,7 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:drawableLeft="@drawable/ceintre"
         android:text="@string/button_yourStoreActivity"
+        android:textColor="@color/black"
         android:background="@color/welcomeButton"/>
 
     <Button
@@ -37,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textColor="@color/black"
         android:text="@string/button_buyerMessageActivity"
         android:background="@color/welcomeButton"
         android:drawableLeft="@drawable/baseline_message_24"
@@ -48,6 +52,7 @@
         android:layout_height="15dp"
         android:layout_weight="1"
         android:text="@string/button_salesHistoryActivity"
+        android:textColor="@color/black"
         android:background="@color/welcomeButton"
         android:drawableLeft="@drawable/baseline_history_24"/>
 
