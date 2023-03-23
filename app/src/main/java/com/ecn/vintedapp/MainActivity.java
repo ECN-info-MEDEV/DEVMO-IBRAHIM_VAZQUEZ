@@ -89,15 +89,11 @@ public class MainActivity extends AppCompatActivity {
 
             Product product = new Product(data.getStringExtra(NewProductActivity.EXTRA_REPLY));
             String priceResponse=data.getStringExtra("price");
-            String finalPrice="Price : "+priceResponse;
             String name=data.getStringExtra("name");
-            String finalName="Name : "+name;
-            String finalDescription="Description : " + data.getStringExtra("description");
-            String finalCategory = "Category : " +data.getStringExtra("category");
-            product.setDescription(finalDescription);
-            product.setName(finalName);
-            product.setPrice(finalPrice);
-            product.setCategory(finalCategory);
+            product.setDescription(data.getStringExtra("description"));
+            product.setName(name);
+            product.setPrice(priceResponse);
+            product.setCategory(data.getStringExtra("category"));
 
 
             mProductViewModel.insert(product);

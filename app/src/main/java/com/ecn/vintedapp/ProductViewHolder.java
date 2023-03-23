@@ -48,7 +48,8 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         productDescriptionView.setText(product.getDescription());
         productPriceView.setText(product.getPrice());
         productNameView.setText(product.getName());
-        productCategoryView.setText(product.getCategory());
+        String fullCategory="Category : "+product.getCategory();
+        productCategoryView.setText(fullCategory);
         String fullDescription="Description : " +product.getDescription();
         String fullPrice="Price : "+product.getPrice()+" €";
         String fullName="Name : "+product.getName();
