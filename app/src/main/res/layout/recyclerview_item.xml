@@ -10,6 +10,7 @@
         style="@style/word_title"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="@color/productListColor"
          />
 
         <TextView
@@ -17,20 +18,20 @@
             style="@style/word_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_orange_light" />
+            android:background="@color/productListColor" />
 
     <TextView
         android:id="@+id/descriptionView"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray" />
+        android:background="@color/productListColor" />
     <TextView
         android:id="@+id/priceView"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light" />
+        android:background="@color/productListColor" />
 
     <Button
         android:id="@+id/buttonEditingProduct"

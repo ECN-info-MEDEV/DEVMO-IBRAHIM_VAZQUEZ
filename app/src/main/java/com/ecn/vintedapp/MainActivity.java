@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("MainActivity","Recieving the object ");
+        Log.d("MainActivity","Receiving the object ");
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Log.d("MainActivity","Receiving the object : the response is ok ");

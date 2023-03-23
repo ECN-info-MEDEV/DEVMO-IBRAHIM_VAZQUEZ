@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,6 +45,19 @@ public class ProductListActivity extends AppCompatActivity {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(products);
         });
+
+        RecyclerView recyclerView1=findViewById(R.id.recyclerview);
+        String name="Test Name";
+        Button editItem=recyclerView1.findViewById(R.id.buttonEditingProduct);
+
+        /**
+        editItem.setOnClickListener(view->{
+            Intent intent = new Intent(ProductListActivity.this, NewProductActivity.class);
+            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            intent.putExtra("name",name);
+
+
+        });**/
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
