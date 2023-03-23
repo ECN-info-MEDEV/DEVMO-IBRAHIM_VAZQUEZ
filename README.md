@@ -29,3 +29,7 @@ La page Edit Product est accessible si l'on souhaite mettre à jour les informat
 <p align="center">
 <img width="213" alt="image" src="https://user-images.githubusercontent.com/118427993/227169630-92287817-76a9-4f62-9dd0-5c898da47abc.png">
 </p>
+
+La page Edit Product n'a pas pu être finalisée car nous avons rencontré quelques problèmes avec la mise à jour de la base de données (problème au niveau de la requête qu était lancée sur le thread principal). 
+
+Nous avons aussi commencé certains tests unitaires pour notre application mais nous n'avons pas eu le temps de finaliser cette partie. 
