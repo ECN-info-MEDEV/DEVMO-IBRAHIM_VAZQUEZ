@@ -1,9 +1,11 @@
 package com.ecn.vintedapp;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +21,8 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
 
     private final ImageView photo;
 
+    private final Button editButton;
+
 
     private ProductViewHolder(View itemView) {
 
@@ -29,6 +33,10 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         productPriceView=itemView.findViewById(R.id.priceView);
         productNameView=itemView.findViewById(R.id.nameView);
         photo=itemView.findViewById(R.id.imgView);
+        editButton=itemView.findViewById(R.id.buttonEditingProduct);
+
+        photo.setImageResource(R.drawable.shirtpicture);
+
 
 
     }
@@ -38,6 +46,7 @@ public class ProductViewHolder  extends RecyclerView.ViewHolder {
         productDescriptionView.setText(product.getDescription());
         productPriceView.setText(product.getPrice());
         productNameView.setText(product.getName());
+
 
 
 
