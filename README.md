@@ -24,3 +24,8 @@ Une fois le bouton "Save" cliqué, le produit est ajouté à la liste des produi
 </p>
 
 Cette liste est accessible depuis le bouton "Your Store" disponible sur l'écran d'accueil. 
+
+La page Edit Product est accessible si l'on souhaite mettre à jour les informations concernant un produit. Elle se présente sous la forme suivante 
+<p align="center">
+<img width="213" alt="image" src="https://user-images.githubusercontent.com/118427993/227169630-92287817-76a9-4f62-9dd0-5c898da47abc.png">
+</p>
